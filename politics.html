@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics Events - Event Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Event Finder</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.instagram.com/eventfinder_?igsh=dWd1dmtjMDNmeGY3">Follow us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ 
+
+        <section id="politics-events">
+            <section class="hero">
+            <h2>Politics Events</h2>
+            <input type="text" id="searchBox" placeholder="Search events..." >
+            <button type="submit" id="button" onclick="filterItems()">Search</button></section>
+            <div class="festivals">
+                <div class="festival">
+                    <img src="gettyimages-2153080374-1024x1024.jpg" alt="Fest 1">
+                    <h3>Congress Party - Public Meet</h3>
+                    <p><i class="fas fa-calendar-alt"></i>Date: Nov 17, 2025</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Location: Codissia, Coimbatore</p>
+                    <a href="https://inc.in/" class="book-ticket">Book Ticket</a>
+                </div>
+                <div class="festival">
+                    <img src="eps.jpg" alt="Fest 2">
+                    <h3>Makkalai Kaappom, Thamizhagathai Meetpom</h3>
+                    <p><i class="fas fa-calendar-alt"></i>Date: Nov 7, 2025</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Location: Mettupalayam, Coimbatore</p>
+                    <a href="https://aiadmk.com/" class="book-ticket">Book Ticket</a>
+                </div>
+                <div class="festival">
+                <img src="tvk-president-vijay-and-flag-portrait-images-hd-585233.jpg" alt="politics">
+                <h3>TVK CAMPAIGN - COIMBATORE</h3>
+                <p>Date: Feb 26, 2025</p>
+                <p>Location: Sivananda Colony,Coimbatore</p>
+           
+                <a href="https://tvkitwing.com/" class="book-ticket">Free Visit</a>
+            </div>
+                <div class="festival">
+                    <img src="ntk.jpg" alt="Fest 2">
+                    <h3>NTK - Public Meet</h3>
+                    <p><i class="fas fa-calendar-alt"></i>Date: Dec 10-12, 2025</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Location: Codissia, Coimbatore</p>
+                    <a href="https://www.naamtamilar.org/" class="book-ticket">Book Ticket</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Event Finder. All rights reserved.</p>
+    </footer>
+     <script>
+                document.getElementById('button').addEventListener('click', function() {
+                 window.scrollBy({
+                   top: 300,
+                   left: 0,
+                   behavior: 'auto'
+                 });
+               });
+             </script>
+             <script>
+                 // Function to filter items based on search query
+                function filterItems() {
+                    const query = document.getElementById('searchBox').value.toLowerCase();
+                    const items = document.querySelectorAll('.festival');
+                    let resultFound = false;
+        
+                    // Loop through each item and check if it matches the query
+                    items.forEach(item => {
+                        const itemText = item.textContent.toLowerCase();
+                        
+                        if (itemText.includes(query)) {
+                            item.style.display = 'block'; // Show item if it matches
+                            resultFound = true;
+                        } else {
+                            item.style.display = 'none'; // Hide item if it doesn't match
+                        }
+                    });
+        
+                    // Show "No results found" message if no matches
+                    const noResultsMessage = document.getElementById('noResults');
+                    if (resultFound) {
+                        noResultsMessage.style.display = 'none';
+                    } else {
+                        noResultsMessage.style.display = 'block';
+                    }
+                }
+            </script>
+            <div id="loading">
+    <div class="spinner"></div>
+</div>
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        document.getElementById("loading").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
+        }, 500); // Waits 0.5 seconds before removing
+    }, 500); // Shows loader for at least 1 second
+};
+</script>
+</body>
+</html>
